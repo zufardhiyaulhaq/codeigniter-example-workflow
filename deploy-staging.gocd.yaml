@@ -25,9 +25,9 @@ pipelines:
             tasks:
             - fetch:
                 artifact_id: codeigniter-example
-                pipeline: build_publish_image
-                stage: build_publish_image
-                job: build_image
+                pipeline: deploy_to_development
+                stage: deploy_to_development
+                job: deploy
                 artifact_origin: external
                 run_if: passed
             - exec:
