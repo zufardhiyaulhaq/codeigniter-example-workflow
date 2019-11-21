@@ -24,16 +24,14 @@ pipelines:
             elastic_profile_id: staging-agent
             tasks:
             - fetch:
-                options:
-                  EnvironmentVariablePrefix: ''
-                  SkipImagePulling: 'true'
                 artifact_id: codeigniter-example
-                pipeline: deploy_to_development
-                stage: deploy_to_development
-                job: deploy
+                pipeline: build_publish_image
+                stage: build_publish_image
+                job: build_image
                 artifact_origin: external
                 run_if: passed
             - exec:
                 arguments:
                 command: ./app-deployment.sh
                 run_if: passed
+

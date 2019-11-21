@@ -24,9 +24,6 @@ pipelines:
             elastic_profile_id: development-agent
             tasks:
             - fetch:
-                options:
-                  EnvironmentVariablePrefix: ''
-                  SkipImagePulling: 'true'
                 artifact_id: codeigniter-example
                 pipeline: build_publish_image
                 stage: build_publish_image
@@ -37,3 +34,4 @@ pipelines:
                 arguments:
                 command: ./app-deployment.sh
                 run_if: passed
+
