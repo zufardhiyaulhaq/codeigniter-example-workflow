@@ -29,12 +29,12 @@ pipelines:
                 store_id: docker-private-registry
                 configuration:
                   options:
-                    Image: ${DOCKERHUB_USERNAME}/codeigniter-example
+                    Image: ${DOCKER_REGISTRY_URL}/codeigniter-example
                     Tag: ${GO_PIPELINE_LABEL}
             tasks:
             - exec:
                 arguments:
                 - -c
-                - docker build -t $DOCKERHUB_USERNAME/codeigniter-example:$GO_PIPELINE_LABEL . -f Dockerfile
+                - docker build -t $DOCKER_REGISTRY_URL/codeigniter-example:$GO_PIPELINE_LABEL . -f Dockerfile
                 command: /bin/bash
                 run_if: passed

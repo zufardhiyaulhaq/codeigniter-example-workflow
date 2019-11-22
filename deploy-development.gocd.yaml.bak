@@ -34,4 +34,3 @@ pipelines:
                 arguments:
                 command: ./app-deployment.sh
                 run_if: passed
-
