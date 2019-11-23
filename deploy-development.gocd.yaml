@@ -24,6 +24,7 @@ pipelines:
             elastic_profile_id: development-agent
             tasks:
             - exec:
-                arguments: app-deployment.sh
+                arguments:
+                - app-deployment.sh
                 command: /bin/bash
                 run_if: passed
