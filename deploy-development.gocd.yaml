@@ -22,6 +22,7 @@ pipelines:
           deploy:
             timeout: 0
             elastic_profile_id: development-agent
+            tasks:
             - exec:
                 arguments:
                 command: ./app-deployment.sh
