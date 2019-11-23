@@ -25,6 +25,6 @@ pipelines:
             elastic_profile_id: docker-builder-agent
             tasks:
             - exec:
-                arguments:
-                command: ./app-build.sh
+                arguments: app-build.sh
+                command: /bin/bash
                 run_if: passed
