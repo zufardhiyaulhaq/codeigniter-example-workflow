@@ -28,6 +28,7 @@ pipelines:
           deploy:
             timeout: 0
             elastic_profile_id: staging-agent
+            tasks:
             - exec:
                 arguments:
                 - app-deployment.sh
