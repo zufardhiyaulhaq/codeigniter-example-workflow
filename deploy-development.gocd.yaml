@@ -3,8 +3,8 @@ pipelines:
   deploy_to_development:
     group: codeigniter-example
     label_template: ${COUNT}
-    lock_behavior: none
-    display_order: 3
+    lock_behavior: unlockWhenFinished
+    display_order: 2
     environment_variables:
     materials:
       upstream:
@@ -22,14 +22,6 @@ pipelines:
           deploy:
             timeout: 0
             elastic_profile_id: development-agent
-            tasks:
-            - fetch:
-                artifact_id: codeigniter-example
-                pipeline: build_publish_image
-                stage: build_publish_image
-                job: build_image
-                artifact_origin: external
-                run_if: passed
             - exec:
                 arguments:
                 command: ./app-deployment.sh

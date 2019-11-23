@@ -23,18 +23,8 @@ pipelines:
           build_image:
             timeout: 0
             elastic_profile_id: docker-builder-agent
-            artifacts:
-            - external:
-                id: codeigniter-example
-                store_id: docker-private-registry
-                configuration:
-                  options:
-                    Image: ${DOCKER_REGISTRY_URL}/codeigniter-example
-                    Tag: ${GO_PIPELINE_LABEL}
             tasks:
             - exec:
                 arguments:
-                - -c
-                - docker build -t $DOCKER_REGISTRY_URL/codeigniter-example:$GO_PIPELINE_LABEL . -f Dockerfile
-                command: /bin/bash
+                command: ./app-build.sh
                 run_if: passed
